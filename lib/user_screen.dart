@@ -16,12 +16,14 @@ class _UserScreenState extends State<UserScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('User'),
+        title: Text(widget.user.name),
       ),
       body: Container(
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Container(
+              margin: EdgeInsets.symmetric(vertical: 10),
               child: Center(
                 child: ClipOval(
                   child: Image.network(
@@ -30,6 +32,22 @@ class _UserScreenState extends State<UserScreen> {
                     width: 150,
                     height: 150,
                   ),
+                ),
+              ),
+            ),
+            Container(
+              child: Center(
+                child: Text(
+                  widget.user.name,
+                  style: TextStyle(fontSize: 25, color: Colors.black),
+                ),
+              ),
+            ),
+            Container(
+              child: Center(
+                child: Text(
+                  widget.user.city,
+                  style: TextStyle(fontSize: 18, color: Colors.black),
                 ),
               ),
             ),

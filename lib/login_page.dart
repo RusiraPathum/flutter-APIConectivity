@@ -103,8 +103,8 @@ class _LoginPageState extends State<LoginPage> {
 
   //login button function
   void loginButtonFun() {
-    if (_usernameController.text == 'pathum' &&
-        _passwordController.text == '123456') {
+    if (_usernameController.text == 'user' &&
+        _passwordController.text == 'user') {
       print('Login success');
       Navigator.push(
           context, MaterialPageRoute(builder: (context) => HomePages()));

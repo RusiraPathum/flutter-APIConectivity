@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:uidesign01/user_screen.dart';
 
 import 'rest_api_service.dart';
+import 'user.dart';
 // import 'package:uidesign01/rest_api_service.dart';
 
 class HomePages extends StatefulWidget {
@@ -14,9 +15,15 @@ class HomePages extends StatefulWidget {
 class _HomePagesState extends State<HomePages> {
   final apiService = RestAPIService();
 
+  List<User> usersList = <User>[];
+
   @override
   void initState() {
-    apiService.getUsers();
+    apiService.getUsers().then((value) {
+      if (value != null) {
+        usersList = value;
+      }
+    });
     super.initState();
   }
 
@@ -65,12 +72,12 @@ class _HomePagesState extends State<HomePages> {
                                     ? snapShot.data![index].name
                                     : '',
                                 style: TextStyle(
-                                    fontSize: 18, color: Colors.black),
+                                    fontSize: 17, color: Colors.black),
                               ),
                               subtitle: Text(
                                 snapShot.data![index].city ?? '',
                                 style: TextStyle(
-                                    fontSize: 18, color: Colors.black),
+                                    fontSize: 15, color: Colors.black),
                               ),
                               leading: ClipOval(
                                 child: Image.network(
